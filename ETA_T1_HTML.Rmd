@@ -1,0 +1,1706 @@
+---
+output: 
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    
+---
+
+```{=html}
+<style>
+body > div.container-fluid.main-container{
+max-width: 1400px;
+}
+
+.html-widget {
+    margin-bottom: 0px;
+}
+
+  
+  @media print {
+    
+    * { overflow: visible !important; } 
+    
+    .page { page-break-after:always; }
+    
+  }
+  
+  @media print {
+div {
+-webkit-print-color-adjust: exact;
+
+}
+
+#TOC {
+  display: none !important;
+}
+
+h2 {
+  letter-spacing: normal !important;
+}
+
+h4 {
+  letter-spacing: normal !important;
+}
+
+.before_colon1 {
+  letter-spacing: normal !important;
+}
+
+.after_colon {
+  letter-spacing: normal !important;
+}
+
+.after_colon1 {
+  letter-spacing: normal !important;
+}
+
+.header_info{
+  letter-spacing: normal !important;
+}
+
+.fancy_text{
+  letter-spacing: normal !important;
+}
+
+}
+
+</style>
+
+```
+
+<style>
+
+body > div.container-fluid.main-container > div > div.toc-content.col-xs-12.col-sm-8.col-md-9 > section > div:nth-child(7) > div.foundation_header > table > tbody > tr > td:nth-child(1){
+width:592px;
+}
+
+body > div.container-fluid.main-container > div > div.toc-content.col-xs-12.col-sm-8.col-md-9 > section > div:nth-child(8) > div.function_header > table > tbody > tr > td:nth-child(1){
+width:592px;
+}
+
+body > div.container-fluid.main-container > div > div.toc-content.col-xs-12.col-sm-8.col-md-9 > section > div:nth-child(9) > div.relationship_header > table > tbody > tr > td:nth-child(1){
+width:592px;
+}
+
+div.tocify {
+  width: 30% !important;
+  max-width: 280px !important;
+  max-height: 85% !important;
+}
+
+.h1 {
+  color: #455565  !important;
+  <!-- margin-left: 95px; -->
+  text-align: center;
+}
+
+h2 {
+  color: #FFFFFF !important;
+  letter-spacing: 1px;
+  text-indent: 1%;
+}
+
+
+h4 {
+  margin-left: 20%;
+  margin-right: auto;
+  letter-spacing: 1px;
+}
+
+.before_colon {
+  font-weight: bold;
+  font-size: 12pt;
+  text-align: center;
+  margin-left: 2%; <!-- changed this from 20% to 5% -->
+}
+
+.before_colon1 {
+  font-weight: bold;
+  font-size: 14pt;
+  text-align: center;
+  margin-left: auto;
+  letter-spacing: 1px;
+}
+
+.after_colon {
+  font-weight: normal;
+  font-size: 12pt;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  letter-spacing: 0.4px;
+}
+
+.after_colon1 {
+  font-weight: normal;
+  font-size: 12pt; <!-- previously 16pt font -->
+  text-align: center;
+  margin-right: auto;
+  letter-spacing: 0.4px;
+}
+
+.header {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  outline: #bc8d46 solid 3px;
+  width: 550px;
+  height: 400px;
+}
+
+.about {
+  margin-left: 10%;
+  max-width: 60%;
+}
+.model{
+  column-count: 3;
+  column-gap: 30px;
+}
+.nobreak{
+  break-inside: avoid;
+}
+.header_info{
+  color: #FFFFFF !important;
+  letter-spacing: 1px;
+  margin-left: 1%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  display: inline-block;
+}
+.basic_header{
+  background-color:#465267 !important;
+  height: 160px;
+  width: 800px;
+  margin-left: 1%;
+  padding-top:5%;
+  display: inline-block;
+}
+.foundation_header{
+  background-color: #c69e5d !important;
+  height: 170px;
+  width: 800px;
+  padding-top:2%;
+  display: inline-block;
+}
+.function_header{
+  background-color:#809e94  !important;
+  height: 170px;
+  width: 800px;
+  padding-top:2%;
+  display: inline-block;
+}
+.relationship_header{
+  background-color:#636c80  !important;
+  height: 170px;
+  width: 800px;
+  padding-top:2%;
+  display: inline-block;
+}
+.line{
+  border-bottom: 2.5px solid #FFFFFF;
+  margin-left: 1%;
+  width: 60%;
+  margin-top: 10px;
+}
+.line1{
+  border-bottom: 2.5px solid #465267;
+  margin-left: 1%;
+  width: 30%;
+  margin-top: 8px;
+  display: center;
+}
+.line2{
+  border-bottom: 2.5px solid #c8c7c7;
+  width: 30%;
+}
+.grid-container1 {
+  display: inline-grid;
+  grid-template-columns: 440px 400px;
+  justify-content: center;
+    padding-top: 0px;
+  padding-bottom: 0px;
+    padding-left: 5px;
+  padding-right: 0px;
+  margin-bottom:-35px;
+}
+.grid-item1 {
+  border: 0px solid black;
+    padding-top: 0px;
+  padding-bottom: 0px;
+    padding-left: 0px;
+  padding-right: 0px;
+}
+
+.grid-container1b {
+  display: grid;
+  grid-template-columns: 1px 500px;
+  justify-content: center;
+    padding-top: 0px;
+  padding-bottom: 0px;
+    padding-left: 0px;
+  padding-right: 0px;
+  margin-bottom:-25px;
+}
+.grid-item1b {
+  border: 0px solid black;
+    padding-top: 0px;
+  padding-bottom: 0px;
+    padding-left: 80px;
+  padding-right: 0px;
+}
+
+.text_box{
+  width: 700px;
+  height: 200px;
+  border: 5px solid #465267;
+}
+.text_box1{
+  width: 700px;
+  height: 100px;
+  border: 5px solid #465267;
+}
+.fancy_text{
+  margin-left:50px; 
+  margin-right:-150px;
+  letter-spacing: 0.4px;
+  width: 700px;
+}
+table{
+  width: 100%;
+}
+<!-- td{ -->
+<!--   padding: 5%; -->
+<!-- } -->
+.team_model_grid{
+ display: inline-grid;
+ grid-template-columns: auto;
+ width: 32%;
+}
+.team_model_content{
+ margin-left:50px; 
+ margin-right:-150px;
+ width: 700px;
+}
+.team_model_cell_content{
+  padding: 5px;
+}
+.header_style{
+  font-size: 14px !important;
+  color: #FFFFFF !important;
+  letter-spacing: 1px;
+}
+.grid-item1c {
+  border: 0px solid black;
+    padding-top: 0px;
+  padding-bottom: 0px;
+    padding-left: 75px;
+  padding-right: 0px;
+}
+
+</style>
+
+::: {style="page-break-after: always !important;"}
+
+<br>
+<h4>VHA NATIONAL CENTER for ORGANIZATIONAL DEVELOPMENT</h4>
+<br> <center>For information on our services, visit our [website](https://dvagov.sharepoint.com/sites/VHANationalCenterforOrganizationDevelopment).
+</center>
+
+
+
+
+
+```{r, include=F}
+
+
+
+# ETAs <- all_surveys() # needed this line to find the correct survey id
+
+dat <- finalData$a
+#dat <- dat %>% filter(StartDate < input$dateRange[2] + 1)
+dat <- as.data.frame(sapply(dat, as.character))
+
+iteminfo <- read.csv("iteminfo_ETA_HTML_Nov_2023.csv")
+
+
+colnames(dat)[colnames(dat) %in% iteminfo$tag5] <- iteminfo$abbr[iteminfo$tag5 %in% colnames(dat)]
+
+items_all <- iteminfo$abbr[!iteminfo$factor %in% 'demo' & !iteminfo$factor %in% ""]
+
+dat$rm=apply(dat[,items_all],1, function(x) sum(is.na(x))) # this line only for fake data TB generated. 
+dat=dat %>% filter(rm != 34)
+
+dat[dat==""]=NA
+# write.csv(dat, paste0(input$team_name,"_ETA_T1_Cleaned Data.csv"))
+
+iteminfo$factor = str_to_title(iteminfo$factor)
+
+
+
+cc = input$team_name
+
+TEAM = paste0(cc," (N = ", nrow(dat),")")
+
+x=as.character(input$dateRange[1])
+start=convert_date(x)
+x=as.character(input$dateRange[2])
+end=convert_date(x)
+      
+T1 = format_admin(start, end)
+      
+# T1 = input$start_end_date
+REPORT.DATE = paste0(format(Sys.Date(), "%B %d"),", ", format(Sys.Date(), "%Y"))
+
+#define items of interest
+items = iteminfo$abbr[iteminfo$factor %in% c("Foundations","Relationships","Functions")]
+conflict = iteminfo$abbr[iteminfo$factor %in% "Conflict"]
+validation = iteminfo$abbr[iteminfo$factor %in% "Validation"]
+demo = iteminfo$abbr[iteminfo$factor %in% "Demo"]
+foundations = iteminfo$abbr[iteminfo$factor %in% c("Foundations")]
+relationships = iteminfo$abbr[iteminfo$factor %in% c("Relationships")]
+functions = iteminfo$abbr[iteminfo$factor %in% c("Functions")]
+
+# recode for scores
+dat[dat == "Strongly Disagree"] = 1
+dat[dat == "Disagree"] = 2
+dat[dat == "Neutral"] = 3
+dat[dat == "Agree"] = 4
+dat[dat == "Strongly Agree"] = 5
+dat[dat == "Do Not Know"] = NA
+dat[dat == "Yes"] = 1
+dat[dat == "No"] = 0
+
+#recode to numeric
+dat[,c(items,validation)] <- sapply(dat[,c(items,validation)],as.numeric)
+
+
+
+found_score=format(round(mean(as.matrix(dat[, foundations]), na.rm=T),1), nsmall=1)
+relat_score=format(round(mean(as.matrix(dat[, relationships]), na.rm=T),1), nsmall=1)
+func_score=format(round(mean(as.matrix(dat[, functions]), na.rm=T),1), nsmall=1)
+
+for(cc in items){
+  dat[,cc]=factor(dat[,cc], levels=1:5, labels=c("Strongly Disagree","Disagree","Neutral","Agree","Strongly Agree"))
+}
+
+#Getting frequencies
+freq_table=function(x){
+  out=t(as.data.frame(table(x)))
+  colnames(out)=out[1,]
+  out=out[-1,,drop=F]
+  return(out)
+}
+out=do.call(rbind.data.frame,lapply(dat[,items], freq_table))
+
+out$abbr=rownames(out)
+out[,1:5]=lapply(out[,1:5], as.numeric)
+
+#Getting the N
+out$N=rowSums(out[,1:5])
+
+#Mean
+for(cc in 1:nrow(out)){
+  out$Mean[cc]=((out$`Strongly Disagree`[cc]*1)+
+               (out$`Disagree`[cc]*2)+
+               (out$Neutral[cc]*3)+
+               (out$`Agree`[cc]*4)+
+               (out$`Strongly Agree`[cc]*5))/out$N[cc]
+    
+}
+
+#% of response options                
+out$perc_lowest=out$`Strongly Disagree`/out$N
+out$perc_low=out$`Disagree`/out$N
+out$perc_mid=out$Neutral/out$N
+out$perc_high=out$`Agree`/out$N
+out$perc_highest=out$`Strongly Agree`/out$N
+
+#% Pos and Neg
+out$perc_neg=(out$`Strongly Disagree`+out$`Disagree`)/out$N
+out$perc_pos=(out$`Strongly Agree`+out$`Agree`)/out$N
+
+out=merge(out, iteminfo, "abbr")
+
+
+#COlors
+found_max = "#c69e5d !important" 
+found_med = "#d7bd92 !important" #e5d0b2
+found_min = "#fdfffd !important"
+found_neg = "#e5d0b2 !important"
+
+relat_max = "#636c80 !important" 
+relat_med = "#b0b4bd !important"
+relat_min = "#fdfffd !important"
+relat_neg = "#cfd7d9 !important"
+
+func_max = "#809e94 !important"
+func_med = "#b2c4be !important" #c1d1cc
+func_min = "#fdfffd !important"
+func_neg = "#D8E1DE !important" 
+
+found_max_plotly = "#c69e5d" 
+found_med_plotly = "#d7bd92" 
+found_min_plotly = "#fdfffd"
+found_neg_plotly = "#e5d0b2"
+
+relat_max_plotly = "#636c80" 
+relat_med_plotly = "#b0b4bd"
+relat_min_plotly = "#fdfffd"
+relat_neg_plotly = "#cfd7d9"
+
+func_max_plotly = "#809e94"
+func_med_plotly = "#b2c4be" 
+func_min_plotly = "#fdfffd"
+func_neg_plotly = "#D8E1DE"
+
+out$colorneg=NA
+out$colorneg[out$factor=="Foundations"]=found_neg_plotly
+out$colorneg[out$factor=="Functions"]=func_neg_plotly
+out$colorneg[out$factor=="Relationships"]=relat_neg_plotly
+
+out$colorneu=NA
+out$colorneu[out$factor=="Foundations"]=found_med_plotly
+out$colorneu[out$factor=="Functions"]=func_med_plotly
+out$colorneu[out$factor=="Relationships"]=relat_med_plotly
+
+out$colorpos=NA
+out$colorpos[out$factor=="Foundations"]=found_max_plotly
+out$colorpos[out$factor=="Functions"]=func_max_plotly
+out$colorpos[out$factor=="Relationships"]=relat_max_plotly
+
+#Sorting algorithm
+#Need to come up with a better algorithm
+out3=list()
+for(cc in unique(out$factor)){
+  out2=out[out$factor==cc,]
+  out2=out2[order(out2$perc_pos, out2$perc_neg*-1,out2$perc_mid, decreasing=F),]
+  out3[[cc]]=out2
+}
+
+out=do.call(rbind,out3)
+  
+#Favorable/Unfavorable item and factor level
+  out$item_category=ifelse(out$perc_pos==1, "Favorable","Neutral")
+  out$item_category=ifelse(out$perc_neg>0, "Unfavorable",out$item_category)
+  
+  
+    out$factor_category=NA
+  if(sum(out$item_category[out$factor=="Functions"]=="Favorable")>=5){
+    out$factor_category[out$factor=="Functions"]="Favorable"
+  } else if(sum(out$item_category[out$factor=="Functions"]=="Unfavorable")>=3){
+    out$factor_category[out$factor=="Functions"]="Unfavorable"
+  }else{
+    out$factor_category[out$factor=="Functions"]="Neutral"
+  }
+  
+  if(sum(out$item_category[out$factor=="Foundations"]=="Favorable")>=5){
+    out$factor_category[out$factor=="Foundations"]="Favorable"
+  } else if(sum(out$item_category[out$factor=="Foundations"]=="Unfavorable")>=3){
+    out$factor_category[out$factor=="Foundations"]="Unfavorable"
+  }else{
+    out$factor_category[out$factor=="Foundations"]="Neutral"
+  }
+  
+  if(sum(out$item_category[out$factor=="Relationships"]=="Favorable")>=5){
+    out$factor_category[out$factor=="Relationships"]="Favorable"
+  } else if(sum(out$item_category[out$factor=="Relationships"]=="Unfavorable")>=3){
+    out$factor_category[out$factor=="Relationships"]="Unfavorable"
+  }else{
+    out$factor_category[out$factor=="Relationships"]="Neutral"
+  }
+ 
+#Favorability color
+out$item_color=NA
+out$item_color[out$factor=="Foundations" & out$item_category=="Unfavorable"]="white"
+out$item_color[out$factor=="Foundations" & out$item_category=="Neutral"]=found_med_plotly
+out$item_color[out$factor=="Foundations" & out$item_category=="Favorable"]=found_max_plotly
+
+out$item_color[out$factor=="Functions" & out$item_category=="Unfavorable"]="white"
+out$item_color[out$factor=="Functions" & out$item_category=="Neutral"]=func_med_plotly
+out$item_color[out$factor=="Functions" & out$item_category=="Favorable"]=func_max_plotly
+
+out$item_color[out$factor=="Relationships" & out$item_category=="Unfavorable"]="white"
+out$item_color[out$factor=="Relationships" & out$item_category=="Neutral"]=relat_med_plotly
+out$item_color[out$factor=="Relationships" & out$item_category=="Favorable"]=relat_max_plotly
+
+out$bordercolor=NA
+out$bordercolor[out$factor=="Foundations"]=found_max_plotly
+out$bordercolor[out$factor=="Functions"]=func_max_plotly
+out$bordercolor[out$factor=="Relationships"]=relat_max_plotly
+
+out$textcolor="black"
+out$textcolor[out$factor=="Relationships" & out$item_category=="Favorable"]="white"
+
+#Factor score colors/scores
+
+fact_colors=unique(out[,c("factor","factor_category")])
+
+fact_colors$factor_color[fact_colors$factor=="Foundations" & fact_colors$factor_category=="Unfavorable"]="white"
+fact_colors$factor_color[fact_colors$factor=="Foundations" & fact_colors$factor_category=="Neutral"]=found_med
+fact_colors$factor_color[fact_colors$factor=="Foundations" & fact_colors$factor_category=="Favorable"]=found_max
+
+fact_colors$factor_color[fact_colors$factor=="Functions" & fact_colors$factor_category=="Unfavorable"]="white"
+fact_colors$factor_color[fact_colors$factor=="Functions" & fact_colors$factor_category=="Neutral"]=func_med
+fact_colors$factor_color[fact_colors$factor=="Functions" & fact_colors$factor_category=="Favorable"]=func_max
+
+fact_colors$factor_color[fact_colors$factor=="Relationships" & fact_colors$factor_category=="Unfavorable"]="white"
+fact_colors$factor_color[fact_colors$factor=="Relationships" & fact_colors$factor_category=="Neutral"]=relat_med
+fact_colors$factor_color[fact_colors$factor=="Relationships" & fact_colors$factor_category=="Favorable"]=relat_max
+
+fact_colors$font_color=ifelse(fact_colors$factor %in% c("Functions","Relationships") & fact_colors$factor_category=="Favorable", "white","black")
+
+
+fact_colors$factor_score=NA
+fact_colors$factor_score[fact_colors$factor=="Foundations"]=found_score
+fact_colors$factor_score[fact_colors$factor=="Functions"]=func_score
+fact_colors$factor_score[fact_colors$factor=="Relationships"]=relat_score 
+
+#Getting each factors scores dataframes   
+  
+out_found=out[out$factor=="Foundations",]
+out_func=out[out$factor=="Functions",]
+out_relat=out[out$factor=="Relationships",]
+
+# added for correct ordering
+out_found = out_found[order(out_found$perc_pos, out_found$perc_highest,out_found$perc_high, out_found$perc_mid, out_found$perc_low, decreasing=F),] 
+out_func = out_func[order(out_func$perc_pos, out_func$perc_highest,out_func$perc_high, out_func$perc_mid, out_func$perc_low, decreasing=F),] 
+out_relat = out_relat[order(out_relat$perc_pos, out_relat$perc_highest,out_relat$perc_high, out_relat$perc_mid, out_relat$perc_low, decreasing=F),] 
+
+big.table=tibble(factor=c("Foundations","Functions","Relationships"), data=list(out_found, out_func,out_relat))
+
+# Experience Data Frame
+exp_items=filter(iteminfo, factor=="Validation")
+  
+  dat_exp=dat[,exp_items$abbr]
+  if(sum(dat_exp, na.rm = T) > 18) {
+    
+    dat_exp[dat_exp==""]=NA
+    dat_exp$rm=apply(dat_exp,1, function(x)sum(!is.na(x)))
+    dat_exp=filter(dat_exp,rm >0)
+    dat_exp=select(dat_exp, -rm)
+    
+    dat_exp$engaged=factor(dat_exp$engaged, levels=0:1)
+    dat_exp$effective=factor(dat_exp$effective, levels=0:1)
+    dat_exp$real_team=factor(dat_exp$real_team, levels=0:1)
+    
+    exp=lapply(dat_exp, table)
+    exp=do.call(rbind.data.frame, exp)
+    colnames(exp)=c("no","yes")
+    exp$item=colnames(dat_exp)
+    
+    exp$total=rowSums(exp[,c("yes","no")])
+    exp$perc_no=exp$no/exp$total*100
+    exp$perc_yes=exp$yes/exp$total*100
+    exp$perc_no_print=paste0(round(exp$perc_no,0),"%")
+    exp$perc_yes_print=paste0(round(exp$perc_yes,0),"%")
+  }
+  dat_exp$rm=apply(dat_exp,1, function(x)sum(!is.na(x)))
+  dat_exp=filter(dat_exp,rm >0)
+  dat_exp=select(dat_exp, -rm)
+  
+  dat_exp$engaged=factor(dat_exp$engaged, levels=0:1)
+  dat_exp$effective=factor(dat_exp$effective, levels=0:1)
+  dat_exp$real_team=factor(dat_exp$real_team, levels=0:1)
+  
+  exp=lapply(dat_exp, table)
+  exp=do.call(rbind.data.frame, exp)
+  colnames(exp)=c("no","yes") #if verint rude, switch yes and no = impact items
+  exp$item=colnames(dat_exp)
+  
+  exp$total=rowSums(exp[,c("no","yes")]) #if verint rude, switch yes and no = impact items
+  exp$perc_no=exp$no/exp$total*100
+  exp$perc_yes=exp$yes/exp$total*100
+  exp$perc_no_print=ifelse(exp$perc_no == 0, "", paste0(round(exp$perc_no,0),"%"))
+  exp$perc_yes_print=ifelse(exp$perc_yes == 0, "", paste0(round(exp$perc_yes,0),"%"))
+
+####Plotting function for individual factors items
+
+plot_func=function(x){
+  # x=out_relat
+color_SD = "#891635BF"
+color_D = "#f7955bBF"
+color_N = "#dcdddeBF"
+color_A = "#b0b579BF"
+color_SA = "#00427aBF"
+
+
+  blank_df=data.frame(
+"tag"=paste0("blank",1:7),
+"Strongly Disagree"=c(0,0,0,0,0,0,0),
+"Disagree"=c(0,0,0,0,0,0,0),
+"Neutral"=c(0,0,0,0,0,0,0),
+"Agree"=c(0,0,0,0,0,0,0),
+"Strongly Agree"=c(0,0,0,0,0,0,0),
+"N"=c(0,0,0,0,0,0,0),
+"Mean"=c(0,0,0,0,0,0,0),
+"perc_lowest"=c(0,0,0,0,0,0,0),
+"perc_low"=c(0,0,0,0,0,0,0),
+"perc_mid"=c(0,0,0,0,0,0,0),
+"perc_high"=c(0,0,0,0,0,0,0),
+"perc_highest"=c(0,0,0,0,0,0,0),
+"perc_neg"=c(0,0,0,0,0,0,0),
+"perc_pos"=c(0,0,0,0,0,0,0),
+"wording"=1:7,
+"factor"=c(0,0,0,0,0,0,0),
+"wording_breaks"=c(0,0,0,0,0,0,0),
+"colorneg"=c(0,0,0,0,0,0,0),
+"colorneu"=c(0,0,0,0,0,0,0),
+"colorpos"=c(0,0,0,0,0,0,0),
+"item_category"=c(0,0,0,0,0,0,0),
+"factor_category"=c(0,0,0,0,0,0,0),
+"item_color"=c(0,0,0,0,0,0,0),
+"bordercolor"=c(0,0,0,0,0,0,0),
+"textcolor"=c(0,0,0,0,0,0,0)
+)
+colnames(blank_df)=gsub("[.]", " ", colnames(blank_df))
+
+order.rows=c(x$tag[1], blank_df$tag[1],
+             x$tag[2], blank_df$tag[2],
+             x$tag[3], blank_df$tag[3],
+             x$tag[4], blank_df$tag[4],
+             x$tag[5], blank_df$tag[5],
+             x$tag[6], blank_df$tag[6],
+             x$tag[7], blank_df$tag[7])
+test=rbind(x, blank_df)
+test=test[order(match(test$tag, c(order.rows))),]
+x=test
+
+plot_ly(x, x=~perc_lowest*100, y=~wording,type="bar", marker=list(color=color_SD), text=ifelse(x$perc_lowest > .03, paste0(round(x$perc_lowest*100,0),"%"), ""), name="Strongly Disagree", width = 900, height = 800, textposition = "inside") %>% 
+  add_trace(x=~perc_low*100, y=~wording,type="bar", marker=list(color=color_D), text=ifelse(x$perc_low > .03, paste0(round(x$perc_low*100,0),"%"), ""),name="Disagree") %>% 
+    add_trace(x=~perc_mid*100, y=~wording,type="bar", marker=list(color=color_N), text=ifelse(x$perc_mid > .03, paste0(round(x$perc_mid*100,0),"%"), ""),name="Neutral") %>% 
+    add_trace(x=~perc_high*100, y=~wording,type="bar", marker=list(color=color_A), text=ifelse(x$perc_high > .03, paste0(round(x$perc_high*100,0),"%"), ""),name="Agree") %>% 
+    add_trace(x=~perc_highest*100, y=~wording,type="bar", marker=list(color=color_SA), text=ifelse(x$perc_highest > .03, paste0(round(x$perc_highest*100,0),"%"), ""),name="Strongly Agree") %>% 
+  layout(
+    barmode = 'stack',
+         # annotations=list(text=x$wording[c(1,3,5,7,9,11)], x=0, xanchor="left",y=c(0.75,2.75,4.75,6.75,8.75,10.75), showarrow=F),
+         # list(text=format(round(x$Mean[c(1,3,5,7,9,11)],2),nsmall=2), showarrow=F)),
+         annotations=list(
+                    list(text=x$wording[1], x=0, xanchor="left", y=0.75, showarrow=F),
+                    list(text=x$wording[3], x=0, xanchor="left", y=2.75, showarrow=F),
+                    list(text=x$wording[5], x=0, xanchor="left", y=4.75, showarrow=F),
+                    list(text=x$wording[7], x=0, xanchor="left", y=6.75, showarrow=F),
+                    list(text=x$wording[9], x=0, xanchor="left", y=8.75, showarrow=F),
+                    list(text=x$wording[11], x=0, xanchor="left", y=10.75, showarrow=F),
+                    list(text=x$wording[13], x=0, xanchor="left", y=12.75, showarrow=F),
+                    
+                    list(text=format(round(x$Mean[1],2),nsmall=2), x=101.25, y=0, showarrow=F, font=list(color=x$textcolor[1]), xanchor="left"),
+                    list(text=format(round(x$Mean[3],2),nsmall=2), x=101.25, y=2, showarrow=F, font=list(color=x$textcolor[3]), xanchor="left"),
+                    list(text=format(round(x$Mean[5],2),nsmall=2), x=101.25, y=4, showarrow=F, font=list(color=x$textcolor[5]), xanchor="left"),
+                    list(text=format(round(x$Mean[7],2),nsmall=2), x=101.25, y=6, showarrow=F, font=list(color=x$textcolor[7]), xanchor="left"),
+                    list(text=format(round(x$Mean[9],2),nsmall=2), x=101.25, y=8, showarrow=F, font=list(color=x$textcolor[9]), xanchor="left"),
+                    list(text=format(round(x$Mean[11],2),nsmall=2), x=101.25, y=10, showarrow=F, font=list(color=x$textcolor[11]), xanchor="left"),
+                    list(text=format(round(x$Mean[13],2),nsmall=2), x=101.25, y=12, showarrow=F, font=list(color=x$textcolor[13]), xanchor="left")
+                    
+         ),
+         shapes=list(list(x0=101, x1=106, y0=-0.4,y1=0.4,fillcolor=x$item_color[1],line=list(color=x$bordercolor[1])),
+                     list(x0=101, x1=106, y0=1.6,y1=2.4,fillcolor=x$item_color[3],line=list(color=x$bordercolor[3])),
+                     list(x0=101, x1=106, y0=3.6,y1=4.4,fillcolor=x$item_color[5],line=list(color=x$bordercolor[5])),
+                     list(x0=101, x1=106, y0=5.6,y1=6.4,fillcolor=x$item_color[7],line=list(color=x$bordercolor[7])),
+                     list(x0=101, x1=106, y0=7.6,y1=8.4,fillcolor=x$item_color[9],line=list(color=x$bordercolor[9])),
+                     list(x0=101, x1=106, y0=9.6,y1=10.4,fillcolor=x$item_color[11],line=list(color=x$bordercolor[11])),
+                     list(x0=101, x1=106, y0=11.6,y1=12.4,fillcolor=x$item_color[13],line=list(color=x$bordercolor[13]))
+                     ),
+         yaxis=list(title="", categoryorder='trace',fixedrange = TRUE, range=c(-0.5,13),visible=F),
+         xaxis=list(title="", range=c(0,110),fixedrange = TRUE,zeroline=FALSE,zerolinecolor="white",showgrid=FALSE),
+         legend = list(orientation = 'h',itemclick=FALSE,traceorder='normal',y=5)) %>% 
+      config(displayModeBar=FALSE, staticPlot=TRUE)
+}
+
+
+
+out$item_category=factor(out$item_category, levels=c("Unfavorable","Neutral","Favorable"))
+perc_overall=as.data.frame(table(out$factor, out$item_category))
+perc_overall=tidyr::pivot_wider(perc_overall, id_cols = Var1, names_from = Var2, values_from = Freq)
+perc_overall$Unfavorable=perc_overall$Unfavorable/7*100
+perc_overall$Neutral=perc_overall$Neutral/7*100
+perc_overall$Favorable=perc_overall$Favorable/7*100
+
+perc_overall$Unfavorable_col=c(found_med_plotly,func_med_plotly,relat_med_plotly)
+perc_overall$Neutral_col=c(found_med_plotly,func_med_plotly,relat_med_plotly)
+perc_overall$Favorable_col=c(found_max_plotly,func_max_plotly,relat_max_plotly)
+perc_overall$factor_score=NA
+perc_overall$factor_score[1]=fact_colors$factor_score[fact_colors$factor=="Foundations"]
+perc_overall$factor_score[2]=fact_colors$factor_score[fact_colors$factor=="Functions"]
+perc_overall$factor_score[3]=fact_colors$factor_score[fact_colors$factor=="Relationships"]
+
+perc_overall$factor_color=NA
+perc_overall$factor_color[1]=fact_colors$factor_color[fact_colors$factor=="Foundations"]
+perc_overall$factor_color[2]=fact_colors$factor_color[fact_colors$factor=="Functions"]
+perc_overall$factor_color[3]=fact_colors$factor_color[fact_colors$factor=="Relationships"]
+perc_overall$factor_color=gsub(" !important","", perc_overall$factor_color)
+
+perc_overall$font_color=NA
+perc_overall$font_color[1]=fact_colors$font_color[fact_colors$factor=="Foundations"]
+perc_overall$font_color[2]=fact_colors$font_color[fact_colors$factor=="Functions"]
+perc_overall$font_color[3]=fact_colors$font_color[fact_colors$factor=="Relationships"]
+
+
+perc_overall=perc_overall[3:1,]
+perc_overall=perc_overall[order(match(perc_overall$Var1, c("Functions","Relationships","Foundations"))),]
+
+factor_plot=plot_ly(perc_overall, x=~Unfavorable, y=~Var1,type="bar", marker=list(line=list(color=perc_overall$Unfavorable_col, width=3), color="white"), text=paste0(round(perc_overall$Unfavorable,0),"%"),textfont=list(size=15), name="% Unfavorable", height=200,width=650, showlegend=FALSE) %>% 
+         add_trace(x=~Neutral, y=~Var1,type="bar", marker=list(line=list(color=perc_overall$Neutral_col, width=3), color=perc_overall$Neutral_col), text=paste0(round(perc_overall$Neutral,0),"%"), name="% Neutral") %>% 
+         add_trace(x=~Favorable, y=~Var1,type="bar", marker=list(line=list(color=perc_overall$Favorable_col, width=3), color=perc_overall$Favorable_col), text=paste0(round(perc_overall$Favorable,0),"%"), name="% Favorable") %>% 
+  layout(barmode = 'stack',
+         yaxis=list(title="", categoryorder='trace',fixedrange = TRUE,zerolinecolor="white", tickfont=list(size=15)),
+         xaxis=list(title="", range=c(-1,112),fixedrange = TRUE,zerolinecolor="white", showgrid=FALSE,color="white"),
+         paper_bgcolor="transparent",
+                  shapes=list(list(x0=101, x1=111, y0=1.6,y1=2.4, fillcolor=perc_overall$factor_color[3], line=list(color=found_max_plotly)),
+                     list(x0=101, x1=111, y0=.6,y1=1.4,fillcolor=perc_overall$factor_color[2],line=list(color=relat_max_plotly)),
+                     list(x0=101, x1=111, y0=-0.4,y1=0.4,fillcolor=perc_overall$factor_color[1],line=list(color=func_max_plotly))),
+         annotations=list(                    
+           list(text=perc_overall$factor_score[1], x=106, y=0, showarrow=F, font=list(color=perc_overall$font_color[1],size=15)),
+           list(text=perc_overall$factor_score[2], x=106, y=1, showarrow=F, font=list(color=perc_overall$font_color[2],size=15)),
+           list(text=perc_overall$factor_score[3], x=106, y=2, showarrow=F, font=list(color=perc_overall$font_color[3],size=15))
+         )
+         )%>% 
+      config(displayModeBar=FALSE, staticPlot=TRUE)
+         
+```
+<section class = "header">
+<center>
+![](Bridge Updated Oct_2023.png){ style="margin-top:5px;width: 65%;"}
+</center>
+<br>
+<center>
+<span class = "h1">LEADERSHIP TEAM </span>
+<span class = "h1">ASSESSMENT </span>
+</center>
+
+
+<br>
+
+<span class = "before_colon">TEAM: </span><span class = "after_colon">`r TEAM`</span>
+<br><span class = "before_colon">ASSESSMENT PERIOD: </span><span class = "after_colon">`r T1`</span>
+<br><span class = "before_colon">REPORT DATE: </span><span class = "after_colon">`r REPORT.DATE`</span>
+
+</section>
+<br>
+<br>
+<br>
+<br>
+::: 
+
+<section class = "about">
+::: {style="page-break-after: always !important;"}
+<br>
+<br>
+<div class="basic_header">
+<h2>WHY USE THE VA LTA</h2>
+<span class="header_info">This report helps your team discover, measure, and improve your essential team behaviors for better performance.</span>
+<div class="line"></div>
+</div>
+
+<div class="fancy_text">
+<br>
+<br>By following a process of open exploration and feedback, you can use the power of your team relationships to drive better functioning and engagement.
+
+<br>
+
+<b> With the LTA, you can...</b>
+<p> - Build awareness of the current state of relationship and team-related functions
+- Identify and understand team strength and areas for development
+- Develop goals and an action plan to leverage your team's potential
+</p>
+
+<br>
+
+<b> Teams who focus on these elements tend to...</b>
+<p> - Be more engaged
+- Score better on key performance metrics
+- Lead organizations with lower levels of turnover and higher levels of employee satisfaction
+</p>
+</div
+
+<br>
+<br>
+:::
+
+::: {style="page-break-after: always !important;"}
+<br>
+<br>
+<div class="basic_header">
+<h2>THE VA TEAM MODEL</h2>
+
+<p class="header_info">The three core elements for team success are <span class="header_style" style="font-style: italic !important;">relationships, functions,</span> and <span class="header_style" style="font-style: italic !important;">foundations.</span> These elements form a bridge, facilitating the work of the team and the organization at large.</p>
+<div class="line" style="margin-top:0px;"></div>
+</div>
+<br>
+<br>
+
+<div class="fancy_text">
+[This bridge connects people and work tasks. It enables communication and idea sharing, reduces isolation and creates secure networks for mutual help. A strong leadership team facilitates the work of the organization. When you invest in your team, you build a cohesive, stabilizing structure that ensures you can “weather the storms” – meeting the extraordinary demands leaders face in VA.]{.after_colon1}
+<br>
+<br>
+
+<center>
+![](Bridge Updated Oct_2023.png){style="margin-top:5px;width: 75%;"}
+</center>
+</div>
+
+<div class="team_model_content">
+<div class="team_model_grid">
+  <div style="color:#bc8d45 !important;font-size:40pt;padding-bottom: 7%;">1</div> 
+  <div class="line2"> </div>
+  <div style="color:#bc8d45 !important;font-size:24pt;padding-top: 5%;">Foundations</div>
+  <div class="team_model_cell_content" style="padding-top: 6%;">A true team has defined membership. There is a specific role and contribution expected from each member. Team performance requires members to coordinate their work to be timely and effective.</div><br>
+  <div class="team_model_cell_content">True teams have a common purpose that members understand and agree upon. They define and agree to goals and priorities.</div><br>
+  <div class="team_model_cell_content">True teams regularly reflect on team performance and cohesion - celebrating successes, identifying areas for development, and planning next steps.</div>
+</div>
+
+<div class="team_model_grid">
+<div style="color:#536782 !important;font-size:40pt;padding-bottom: 7%;">2</div>
+  <div class="line2"> </div>
+  <div style="color:#536782 !important;font-size:24pt;padding-top: 5%;">Relationships</div>
+  <div class="team_model_cell_content" style="padding-top: 6%;">The way team members interact with each other makes a difference.</div><br>
+  <div class="team_model_cell_content">In a strong team, members show mutual civility, respect, and trust.</div><br>
+  <div class="team_model_cell_content">They feel psychologically safe - confident to share ideas and concerns.</div> 
+</div>
+
+<div class="team_model_grid">
+  <div style="color:#658d82 !important;font-size:40pt;padding-bottom: 7%;">3</div>
+  <div class="line2"> </div>
+  <div style="color:#658d82 !important;font-size:24pt;padding-top: 5%;">Functions</div>
+  <div class="team_model_cell_content" style="padding-top: 6%;">This core element is defined by how team members approach their work.</div><br>
+  <div class="team_model_cell_content">When this element is in place, team members communicate regularly, hold one another accountable, and review and improve their performance.</div>
+</div>
+</div>
+
+
+<br>
+<br>
+:::
+
+::: {style="page-break-after: always !important;"}
+<br>
+<br>
+<div class="basic_header">
+<h2>APPROACHING YOUR LTA</h2>
+<span class="header_info">Combining individual reflection with group discussion and action planning sets your team up for success.</span>
+<div class="line"></div>
+</div>
+
+<br>
+<br>
+
+<div class="fancy_text">
+<span class="before_colon1">1 - Read and digest.</span>
+<br>To begin, each team member should read the report individually - take time to go carefully and thoroughly. Reflect on the scores that stand out to you.
+
+<br>
+
+<span class="before_colon1">2 - Discuss Results.</span> 
+<br>The report captures your team at a single moment. Talk it through together, exploring without judgement. Ask questions to better understand each other's experiences.
+
+<br>
+
+<span class="before_colon1">3 - Choose your focus.</span> 
+<br>Note your team's strengths and the opportunities for development. Using these lists, set your priorities to decide where you'll focus first.
+
+<br>
+
+<span class="before_colon1">4 - Create your plan.</span> 
+<br>Together, develop one or two meaningful goals that you can commit to work on as a team. think through next steps and how you'll hold each other accountable.
+
+<br>
+
+<span class="before_colon1">5 - Track and reassess.</span> 
+<br>At regular intervals, take note of the progress your team is making and any challenges you may be facing. Adapt and update the action plan when needed. 
+
+</div>
+:::
+
+::: {style="page-break-after: always !important;"}
+<br>
+<br>
+
+
+<div class="basic_header">
+<h2>READING YOUR SCORES</h2>
+<span class="header_info">Understanding your scores is vital for understanding what action to take.</span>
+<div class="line"></div>
+</div>
+
+<div class="fancy_text">
+<br>
+<br>
+<b>Each item was rated from 1 (strongly disagree) to 5 (strongly agree). Higher scores are favorable. Below, you'll see how the range of scores is shown. The more saturated the color, the more favorable the score.</b>
+
+<br>
+
+<span class="before_colon1">Score Distribution</span> 
+<br>Your team's responses at a glance - to what extent does the team have a shared experience?
+
+![](rainbows_legend2.svg){style="margin-left:70px"}
+
+<span class="before_colon1">Qualitative Label</span>
+<br>A way to visualize your team’s aggregate perception - helpful as you prioritize during action planning.
+<br>
+
+<br>
+<br>
+<div class = "model">
+![](favorable cats.JPG){width=100%}
+<br>
+<br>
+<div class ="nobreak">
+An <b>ITEM</b> score is....
+<br>- <b>Favorable</b> when all responses were Agree or Strongly Agree.
+<br>- <b>Neutral</b> if at least 1 response was Neutral and none were Disagree or Strongly Disagree.
+<br>- <b>Unfavorable</b> when at least 1 response was Disagree or Strongly Disagree.
+</div>
+
+
+
+<div class ="nobreak">
+A <b>FACTOR</b> score is....
+<br>- <b>Favorable</b> when at least 5 (71%) item scores were Favorable.
+<br>- <b>Neutral</b> if it is not Favorable or Unfavorable.
+<br>- <b>Unfavorable</b>  when at least 3 (43%) items were rated as Unfavorable.
+</div>
+</div>
+<br>
+<br>
+
+<span class="before_colon1">Positivity Distribution</span>
+<br>Aggregation across all items - again, to what extent do people have a shared experience?
+
+<br>
+
+![](neg neu pos.JPG){width=100%}
+
+<div class = "model">
+<div class ="nobreak">
+<b>% Negative</b> is the sum of the Disagree and Strongly Disagree responses divided by the total number of responses.
+</div>
+
+<div class ="nobreak">
+<b>% Neutral</b> is the sum of the Neutral responses divided by the total number of responses.
+</div>
+
+<div class ="nobreak">
+<b>% Positive</b> is the sum of the Agree and Strongly Agree responses divided by the total number of responses.
+</div>
+</div>
+</div>
+:::
+
+::: {style="page-break-after: always !important;"}
+<br>
+<br>
+<div class="basic_header">
+<h2>YOUR RESULTS: A SUMMARY</h2>
+<span class="header_info">Combining individual reflection with group discussion and action planning sets your team up for success.</span>
+<div class="line"></div>
+</div>
+
+<div class="fancy_text">
+<br>Below is your team's average score on each factor, classified as either favorable, neutral, or unfavorable.
+<center>
+<br>
+<center>
+![](Bridge Updated Oct_2023.png){ style="margin-top:5px;width: 75%;"}
+</center>
+<br>
+<br>
+</center>
+<br>
+
+<div class="grid-container1b">
+
+<div class="grid-item1b"></div>
+<div class="grid-item1b">
+
+```{r, echo=F, message=F, warning=F, fig.height=1, fig.width=4.5}
+
+plot_ly(type="scatter", mode="markers") %>%
+            layout(yaxis=list(range=c(30,100), gridcolor="transparent", fixedrange=T,showticklabels=FALSE, zerolinecolor="transparent"),
+                   xaxis=list(range=c(-4, 90), gridcolor="transparent", fixedrange=T, showticklabels=FALSE, zerolinecolor="transparent"),
+                   shapes=list(list(type="rect",
+                                    fillcolor="white",
+                                    line=list(color=found_med_plotly,width=2),
+                                    x0=0,x1=20,xref="x",
+                                    y0=70,y1=80,yref="y"),
+                               list(type="rect",
+                                    fillcolor=found_med_plotly,
+                                    line=list(color=found_med_plotly,width=2),
+                                    x0=23,x1=43,xref="x",
+                                    y0=70,y1=80,yref="y"),
+                               list(type="rect",
+                                    fillcolor=found_max_plotly,
+                                    line=list(color=found_max_plotly,width=2),
+                                    x0=46,x1=66,xref="x",
+                                    y0=70,y1=80,yref="y"),
+                               list(type="rect",
+                                    fillcolor="white",
+                                    line=list(color=func_med_plotly,width=2),
+                                    x0=0,x1=20,xref="x",
+                                    y0=55,y1=65,yref="y"),
+                               list(type="rect",
+                                    fillcolor=func_med_plotly,
+                                    line=list(color=func_med_plotly,width=2),
+                                    x0=23,x1=43,xref="x",
+                                    y0=55,y1=65,yref="y"),
+                               list(type="rect",
+                                    fillcolor=func_max_plotly,
+                                    line=list(color=func_max_plotly,width=2),
+                                    x0=46,x1=66,xref="x",
+                                    y0=55,y1=65,yref="y"),
+                               list(type="rect",
+                                    fillcolor="white",
+                                    line=list(color=relat_med_plotly,width=2),
+                                    x0=0,x1=20,xref="x",
+                                    y0=40,y1=50,yref="y"),
+                               list(type="rect",
+                                    fillcolor=relat_med_plotly,
+                                    line=list(color=relat_med_plotly,width=2),
+                                    x0=23,x1=43,xref="x",
+                                    y0=40,y1=50,yref="y"),
+                               list(type="rect",
+                                    fillcolor=relat_max_plotly,
+                                    line=list(color=relat_max_plotly,width=2),
+                                    x0=46,x1=66,xref="x",
+                                    y0=40,y1=50,yref="y")
+                               ),
+                   annotations=list(
+                     list(text=paste0("% Unfavorable"),
+                                         y=95,
+                                         x=10,
+                                         showarrow=F, yanchor="top",font=list(size=12)),
+                     list(text=paste0("% Neutral"),
+                                         y=95,
+                                         x=32,
+                                         showarrow=F, yanchor="top",font=list(size=12)),
+                     list(text=paste0("% Favorable"),
+                                         y=95,
+                                         x=55,
+                                         showarrow=F, yanchor="top",font=list(size=12))
+                     
+                   ),
+                   margin=list(t=0,l=0,r=0,b=0)
+            ) %>% 
+              config(staticPlot=TRUE)
+```
+
+</div>
+</div>
+
+<div style="margin-left: -35px;">
+
+```{r, echo=F}
+factor_plot
+```
+
+</div>
+</div>
+:::
+
+::: {style="page-break-after: always !important;"}
+
+<br>
+<br>
+
+<div class="basic_header">
+<h2>SCORES BY ITEM</h2>
+<span class="header_info">This is a high level overview of the core items of the LTA.</span>
+<div class="line"></div>
+</div>
+<br>
+<br>
+<br>
+
+<center>
+<div style=height:100%">
+<div class="grid-container1">
+
+<div class="grid-item1"></div>
+<div class="grid-item1">
+```{r, echo=F, message=F, warning=F, fig.height=1.5, fig.width=4.8}
+
+plot_ly(type="scatter", mode="markers") %>%
+            layout(yaxis=list(range=c(30,100), gridcolor="transparent", fixedrange=T,showticklabels=FALSE, zerolinecolor="transparent"),
+                   xaxis=list(range=c(-4, 90), gridcolor="transparent", fixedrange=T, showticklabels=FALSE, zerolinecolor="transparent"),
+                   shapes=list(list(type="rect",
+                                    fillcolor="white",
+                                    line=list(color=found_med_plotly,width=2),
+                                    x0=0,x1=20,xref="x",
+                                    y0=70,y1=80,yref="y"),
+                               list(type="rect",
+                                    fillcolor=found_med_plotly,
+                                    line=list(color=found_med_plotly,width=2),
+                                    x0=23,x1=43,xref="x",
+                                    y0=70,y1=80,yref="y"),
+                               list(type="rect",
+                                    fillcolor=found_max_plotly,
+                                    line=list(color=found_max_plotly,width=2),
+                                    x0=46,x1=66,xref="x",
+                                    y0=70,y1=80,yref="y"),
+                               list(type="rect",
+                                    fillcolor="white",
+                                    line=list(color=func_med_plotly,width=2),
+                                    x0=0,x1=20,xref="x",
+                                    y0=55,y1=65,yref="y"),
+                               list(type="rect",
+                                    fillcolor=func_med_plotly,
+                                    line=list(color=func_med_plotly,width=2),
+                                    x0=23,x1=43,xref="x",
+                                    y0=55,y1=65,yref="y"),
+                               list(type="rect",
+                                    fillcolor=func_max_plotly,
+                                    line=list(color=func_max_plotly,width=2),
+                                    x0=46,x1=66,xref="x",
+                                    y0=55,y1=65,yref="y"),
+                               list(type="rect",
+                                    fillcolor="white",
+                                    line=list(color=relat_med_plotly,width=2),
+                                    x0=0,x1=20,xref="x",
+                                    y0=40,y1=50,yref="y"),
+                               list(type="rect",
+                                    fillcolor=relat_med_plotly,
+                                    line=list(color=relat_med_plotly,width=2),
+                                    x0=23,x1=43,xref="x",
+                                    y0=40,y1=50,yref="y"),
+                               list(type="rect",
+                                    fillcolor=relat_max_plotly,
+                                    line=list(color=relat_max_plotly,width=2),
+                                    x0=46,x1=66,xref="x",
+                                    y0=40,y1=50,yref="y")
+                               ),
+                   annotations=list(
+                     list(text=paste0("% Negative"),
+                                         y=95,
+                                         x=10,
+                                         showarrow=F, yanchor="top",font=list(size=15)),
+                     list(text=paste0("% Neutral"),
+                                         y=95,
+                                         x=32,
+                                         showarrow=F, yanchor="top",font=list(size=15)),
+                     list(text=paste0("% Positive"),
+                                         y=95,
+                                         x=55,
+                                         showarrow=F, yanchor="top",font=list(size=15))
+                     
+                   ),
+                   margin=list(t=0,l=0,r=0,b=0)
+            ) %>% 
+              config(staticPlot=TRUE)
+```
+</div>
+</div>
+
+<div style="margin-top: -25px;">
+```{r, echo=F, message=F, warning=F}
+values=big.table$data[[1]]
+          plot_ly(values, x=~perc_neg*100, y=~wording_breaks,type="bar", marker=list(line=list(color=values$colorneg, width=3), color="white"), text=ifelse(values$perc_neg > .05, paste0(round(values$perc_neg*100,0),"%"), ""),textfont = list(color = "black"), name="% Negative", height=302.5,width=810, showlegend=FALSE) %>% 
+  add_trace(x=~perc_mid*100, y=~wording_breaks,type="bar", marker=list(color=values$colorneu,line=list(color=values$colorneu,width=3)), text=ifelse(values$perc_mid > .05, paste0(round(values$perc_mid*100,0),"%"), ""),textfont = list(color = "black"),name="% Neutral") %>% 
+    add_trace(x=~perc_pos*100, y=~wording_breaks,type="bar", marker=list(color=values$colorpos,line=list(color=values$colorpos,width=3)), text=ifelse(values$perc_pos > .05, paste0(round(values$perc_pos*100,0),"%"), ""),textfont = list(color = "black"),name="% Positive") %>%
+  layout(barmode = 'stack',
+         margin=list(l=415, pad = 0),
+         yaxis=list(title="", categoryorder='trace',fixedrange = TRUE,showticklabels=FALSE),
+         xaxis=list(title="", range=c(-1,100),fixedrange = TRUE,zerolinecolor="white",domain = list(0.12, 1), showgrid=FALSE,color="white"),
+         paper_bgcolor="transparent",
+         legend = list(orientation = 'h',itemclick=FALSE,traceorder='normal',y=5),
+         annotations=list(
+           list(align="left",showarrow=FALSE,text=values$wording_breaks[1],y=0,xanchor="right",xshift=-210,width=372),
+           list(align="left",showarrow=FALSE,text=values$wording_breaks[2],y=1,xanchor="right",xshift=-210,width=372),
+           list(align="left",showarrow=FALSE,text=values$wording_breaks[3],y=2,xanchor="right",xshift=-210,width=372),
+           list(align="left",showarrow=FALSE,text=values$wording_breaks[4],y=3,xanchor="right",xshift=-210,width=372),
+           list(align="left",showarrow=FALSE,text=values$wording_breaks[5],y=4,xanchor="right",xshift=-210,width=372),
+           list(align="left",showarrow=FALSE,text=values$wording_breaks[6],y=5,xanchor="right",xshift=-210,width=372),
+           list(align="left",showarrow=FALSE,text=values$wording_breaks[7],y=6,xanchor="right",xshift=-210,width=372),
+           list(align="center",textangle=270,showarrow=FALSE,text="Foundations",y=3.15,xanchor="right",xshift=-595,width=230,font=list(size=20, color="white"),bgcolor=found_max_plotly)
+           )
+         ) %>% 
+      config(displayModeBar=FALSE, staticPlot=TRUE)
+
+```
+</div>
+
+<div style="margin-top:-55px;">
+
+```{r, echo=F, message=F, warning=F}
+values=big.table$data[[3]]
+          plot_ly(values, x=~perc_neg*100, y=~wording_breaks,type="bar", marker=list(line=list(color=values$colorneg, width=3), color="white"), text=ifelse(values$perc_neg > .05, paste0(round(values$perc_neg*100,0),"%"), ""),textfont = list(color = "black"), name="% Negative", height=302.5,width=810, showlegend=FALSE) %>% 
+  add_trace(x=~perc_mid*100, y=~wording_breaks,type="bar", marker=list(color=values$colorneu,line=list(color=values$colorneu,width=3)), text=ifelse(values$perc_mid > .05, paste0(round(values$perc_mid*100,0),"%"), ""),textfont = list(color = "black"),name="% Neutral") %>% 
+    add_trace(x=~perc_pos*100, y=~wording_breaks,type="bar", marker=list(color=values$colorpos,line=list(color=values$colorpos,width=3)), text=ifelse(values$perc_pos > .05, paste0(round(values$perc_pos*100,0),"%"), ""),textfont = list(color = "white"),name="% Positive") %>% 
+  layout(barmode = 'stack',
+         margin=list(l=415, pad = 0),
+         yaxis=list(title="", categoryorder='trace',fixedrange = TRUE,showticklabels=FALSE),
+         xaxis=list(title="", range=c(-1,100),fixedrange = TRUE,zerolinecolor="white",domain = list(0.12, 1), showgrid=FALSE,color="white"),
+         paper_bgcolor="transparent",
+         legend = list(orientation = 'h',itemclick=FALSE,traceorder='normal',y=5),
+         annotations=list(
+           list(align="left",showarrow=FALSE,text=values$wording_breaks[1],y=0,xanchor="right",xshift=-210,width=372),# was 320
+           list(align="left",showarrow=FALSE,text=values$wording_breaks[2],y=1,xanchor="right",xshift=-210,width=372),
+           list(align="left",showarrow=FALSE,text=values$wording_breaks[3],y=2,xanchor="right",xshift=-210,width=372),
+           list(align="left",showarrow=FALSE,text=values$wording_breaks[4],y=3,xanchor="right",xshift=-210,width=372),
+           list(align="left",showarrow=FALSE,text=values$wording_breaks[5],y=4,xanchor="right",xshift=-210,width=372),
+           list(align="left",showarrow=FALSE,text=values$wording_breaks[6],y=5,xanchor="right",xshift=-210,width=372),
+           list(align="left",showarrow=FALSE,text=values$wording_breaks[7],y=6,xanchor="right",xshift=-210,width=372),
+           list(align="center",textangle=270,showarrow=FALSE,text="Relationships",y=3,xanchor="right",xshift=-595,width=230,font=list(size=20, color="white"),bgcolor=relat_max_plotly)
+           )
+         ) %>% 
+      config(displayModeBar=FALSE, staticPlot=TRUE)
+
+```
+</div>
+
+<div style="margin-top:-55px;">
+
+```{r, echo=F, message=F, warning=F}
+values=big.table$data[[2]]
+          plot_ly(values, x=~perc_neg*100, y=~wording_breaks,type="bar", marker=list(line=list(color=values$colorneg, width=3), color="white"), text=ifelse(values$perc_neg > .05, paste0(round(values$perc_neg*100,0),"%"), ""),textfont = list(color = "black"), name="% Negative", height=302.5,width=810, showlegend=FALSE) %>% 
+  add_trace(x=~perc_mid*100, y=~wording_breaks,type="bar", marker=list(color=values$colorneu,line=list(color=values$colorneu,width=3)), text=ifelse(values$perc_mid > .05, paste0(round(values$perc_mid*100,0),"%"), ""),textfont = list(color = "black"),name="% Neutral") %>% 
+    add_trace(x=~perc_pos*100, y=~wording_breaks,type="bar", marker=list(color=values$colorpos,line=list(color=values$colorpos,width=3)), text=ifelse(values$perc_pos > .05, paste0(round(values$perc_pos*100,0),"%"), ""),textfont = list(color = "black"),name="% Positive") %>% 
+  layout(barmode = 'stack',
+         margin=list(l=415, pad = 0),
+         yaxis=list(title="", categoryorder='trace',fixedrange = TRUE,showticklabels=FALSE),
+         xaxis=list(title="", range=c(-1,100),fixedrange = TRUE,zerolinecolor="white",domain = list(0.12, 1), showgrid=FALSE),
+         paper_bgcolor="transparent",
+         legend = list(orientation = 'h',itemclick=FALSE,traceorder='normal',y=5),
+         annotations=list(
+           list(align="left",showarrow=FALSE,text=values$wording_breaks[1],y=0,xanchor="right",xshift=-210,width=372),
+           list(align="left",showarrow=FALSE,text=values$wording_breaks[2],y=1,xanchor="right",xshift=-210,width=372),
+           list(align="left",showarrow=FALSE,text=values$wording_breaks[3],y=2,xanchor="right",xshift=-210,width=372),
+           list(align="left",showarrow=FALSE,text=values$wording_breaks[4],y=3,xanchor="right",xshift=-210,width=372),
+           list(align="left",showarrow=FALSE,text=values$wording_breaks[5],y=4,xanchor="right",xshift=-210,width=372),
+           list(align="left",showarrow=FALSE,text=values$wording_breaks[6],y=5,xanchor="right",xshift=-210,width=372),
+           list(align="left",showarrow=FALSE,text=values$wording_breaks[7],y=6,xanchor="right",xshift=-210,width=372),
+           list(align="center",textangle=270,showarrow=FALSE,text="Functions",y=3,xanchor="right",xshift=-595,width=230,font=list(size=20, color="white"),bgcolor=func_max_plotly)
+           )
+         ) %>% 
+      config(displayModeBar=FALSE, staticPlot=TRUE)
+
+```
+
+</div>
+</div>
+</center>
+
+
+:::
+
+::: {style="page-break-after: always !important;"}
+<br>
+<br>
+<div class="foundation_header">
+<table>
+<td>
+<h2>FOUNDATIONS</h2>
+<p class="header_info">Details for your team’s responses to foundation-focused items are shown here. </p>
+<div class="line"></div>
+</td>
+<td>
+
+::: {style="display: inline-block; height:150px; width:150px; border: 3px solid white; text-align: center; background-color: white !important; margin-left: 20%;"}
+
+
+<center><div style="width:130px;height:40px;background-color:`r found_max`;line-height: 40px;margin-top:8px;"><b>Favorable</b></div></center>
+<center><div style="width:130px;height:40px;background-color:`r found_med`;line-height: 40px;border: 2px solid `r found_max`;margin-top:5px;"><b>Neutral</b></div></center>
+<center><div style="width:130px;height:40px;background-color:white !important;line-height: 40px;border: 2px solid `r found_max`;margin-top:5px;"><b>Unfavorable</b></div></center>
+
+:::
+
+</td>
+</table>
+</div>
+
+
+<br>
+<div style="margin-left:-60px">
+```{r, echo=F, fig.height=5,fig.width=9}
+# library(Hmisc)
+
+remove <- c("scale","tag2","tag3","tag4","tag5","X")
+out_found <- out_found[!colnames(out_found) %in% c(remove,"tag")]
+colnames(out_found)[1] <- "tag"
+
+plot_func(out_found)
+
+```
+</div>
+<br>
+<br>
+:::
+
+::: {style="page-break-after: always !important;"}
+<br>
+<br>
+<div class="relationship_header">
+<table>
+<td>
+<h2>RELATIONSHIPS</h2>
+<p class="header_info">Details for your team’s responses to relationships-focused items are shown here. </p>
+<div class="line"></div>
+</td>
+<td>
+::: {style="display: inline-block; height:150px; width:150px; border: 3px solid white; text-align: center; background-color: white !important; margin-left: 5%;"}
+
+<center><div style="width:130px;height:40px;background-color:`r relat_max`;line-height: 40px;margin-top:8px;color:white !important;"><b>Favorable</b></div></center>
+<center><div style="width:130px;height:40px;background-color:`r relat_med`;line-height: 40px;border: 2px solid `r relat_max`;margin-top:5px;"><b>Neutral</b></div></center>
+<center><div style="width:130px;height:40px;background-color:white !important;line-height: 40px;border: 2px solid `r relat_max`;margin-top:5px;"><b>Unfavorable</b></div></center>
+
+:::
+</td>
+</table>
+</div>
+
+<br>
+<div style="margin-left:-60px">
+```{r, echo=F, fig.height=7,fig.width=11}
+# library(Hmisc)
+
+out_relat <- out_relat[!colnames(out_relat) %in% c(remove,"tag")]
+colnames(out_relat)[1] <- "tag"
+
+plot_func(out_relat)
+```
+</div>
+<br>
+<br>
+:::
+
+::: {style="page-break-after: always !important;"}
+<br>
+<br>
+<div class="function_header">
+<table>
+<td>
+<h2>FUNCTIONS</h2>
+<p class="header_info">Details for your team’s responses to functions-focused items are shown here. </p>
+<div class="line"></div>
+</td>
+<td>
+::: {style="display: inline-block; height:150px; width:150px; border: 3px solid white; text-align: center; background-color: white !important; margin-left: 5%;"}
+
+<center><div style="width:130px;height:40px;background-color:`r func_max`;line-height: 40px;margin-top:8px;color:white !important;"><b>Favorable</b></div></center>
+<center><div style="width:130px;height:40px;background-color:`r func_med`;line-height: 40px;border: 2px solid `r func_max`;margin-top:5px;"><b>Neutral</b></div></center>
+<center><div style="width:130px;height:40px;background-color:white !important;line-height: 40px;border: 2px solid `r func_max`;margin-top:5px;"><b>Unfavorable</b></div></center>
+
+:::
+</td>
+</table>
+</div>
+
+<br>
+<div style="margin-left:-60px">
+```{r, echo=F, fig.height=7,fig.width=11}
+# library(Hmisc)
+
+out_func <- out_func[!colnames(out_func) %in% c(remove,"tag")]
+colnames(out_func)[1] <- "tag"
+
+plot_func(out_func)
+```
+</div>
+<br>
+<br>
+:::
+
+
+
+
+::: {style="page-break-after: always !important;"}
+<br>
+<br>
+<div class="basic_header">
+<h2>OUR TEAM'S OVERALL EXPERIENCE</h2>
+<span class="header_info">These items reflect the three primary outcomes of strong team performance.</span>
+<div class="line"></div>
+</div>
+
+<center>
+<div style=height:100%">
+<div class="grid-item1c">
+```{r, echo=F, message=F, warning=F}
+blue_experiences="#3E4C67" 
+
+# left off here, 11/6/23
+
+plot_ly(type="scatter", mode="markers", width = 750, height = 200) %>% # height = 200
+            layout(yaxis=list(range=c(68,100), gridcolor="transparent", fixedrange=F,showticklabels=FALSE, zerolinecolor="transparent"),
+                   xaxis=list(range=c(-90, 90), gridcolor="transparent", fixedrange=F, showticklabels=FALSE, zerolinecolor="transparent"),
+                   shapes=list(list(type="rect",
+                                    fillcolor="white",
+                                    line=list(color=blue_experiences,width=2),
+                                    x0=-90,x1=-10,xref="x",
+                                    y0=74,y1=80,yref="y"),
+                               list(type="rect",
+                                    fillcolor=blue_experiences,
+                                    line=list(color=blue_experiences,width=2),
+                                    x0=-10,x1=70,xref="x",
+                                    y0=74,y1=80,yref="y")
+                               ),
+                   annotations=list(
+                     list(text=paste0("<i>Legend</i>"),
+                                         y=88,
+                                         x=-79,
+                                         showarrow=F, yanchor="top",font=list(size=25)),
+                      list(text=paste0("No"),
+                                         y=79.5,
+                                         x=-50,
+                                         showarrow=F, yanchor="top",font=list(size=20)),
+                      list(text=paste0("Yes"),
+                                         y=79.5,
+                                         x=30,
+                                         #col = "white",
+                                         showarrow=F, yanchor="top",font=list(size=20, color = "white"))
+                   ),
+                   margin=list(t=0,l=0,r=0,b=0)
+            ) %>% 
+              config(staticPlot=TRUE)
+```
+</div>
+</div>
+</center>
+<br>
+
+
+<span style = "color:#bc8d45 !important; font-weight: bold; margin: 100px 1px 5px 80px;">We are an</span><span style = "color:#bc8d45 !important; font-style: italic; font-weight: bold;"> engaged</span><span style = "color:#bc8d45 !important; font-weight: bold;"> team.</span><br>
+<span style = "color:#bc8d45 !important; font-style: italic; margin: 5px -100px 5px 80px; display: inline-block;">(Dedicated to supporting staff, organization, mission, and one another)</span>
+<center>
+<div style=height:100%">
+<div class="grid-item1c">
+```{r, echo=F, message=F, warning=F}
+blue_experiences="#3E4C67" 
+
+plot_ly(type="scatter", mode="markers", width = 750, height = 100) %>%
+            layout(yaxis=list(range=c(77,80), gridcolor="transparent", fixedrange=F,showticklabels=FALSE, zerolinecolor="transparent"),
+                   xaxis=list(range=c(-90, 90), gridcolor="transparent", fixedrange=F, showticklabels=FALSE, zerolinecolor="transparent"),
+                   shapes=list(list(type="rect",
+                                    fillcolor="white",
+                                    line=list(color=blue_experiences,width=2),
+                                    x0=-90,x1=-90 + exp$perc_no[1]*1.6,xref="x",
+                                    y0=79,y1=80,yref="y"),
+                               list(type="rect",
+                                    fillcolor=blue_experiences,
+                                    line=list(color=blue_experiences,width=2),
+                                    x0=-90 + exp$perc_no[1]*1.6,x1=70,xref="x",
+                                    y0=79,y1=80,yref="y")
+                               ),
+                   annotations=list(
+                      list(text=paste0(exp$perc_no_print[1]),
+                                         y=79.85,
+                                         x=(-90+(-90+ exp$perc_no[1]*1.6))/2,
+                                         showarrow=F, yanchor="top",font=list(size=15)),
+                      list(text=paste0(exp$perc_yes_print[1]),
+                                         y=79.85,
+                                         x=(70-(90 - exp$perc_no[1]*1.6))/2,
+                                         #col = "white",
+                                         showarrow=F, yanchor="top",font=list(size=15, color = "white"))
+                   ),
+                   margin=list(t=0,l=0,r=0,b=0)
+            ) %>% 
+              config(staticPlot=TRUE)
+```
+</div>
+</div>
+</center>
+
+<span style = "color:#bc8d45 !important; font-weight: bold; margin:5px 1px 5px 80px;">We are an</span><span style = "color:#bc8d45 !important; font-style: italic; font-weight: bold;"> effective</span><span style = "color:#bc8d45 !important; font-weight: bold;"> team.</span><br>
+<span style = "color:#bc8d45 !important; font-style: italic; margin:5px 1px 5px 80px; display: inline-block;">(Achieves identified goals and objectives)</span>
+<center>
+<div style=height:100%">
+<div class="grid-item1c">
+```{r, echo=F, message=F, warning=F}
+plot_ly(type="scatter", mode="markers", width = 750, height = 100) %>%
+            layout(yaxis=list(range=c(77,80), gridcolor="transparent", fixedrange=F,showticklabels=FALSE, zerolinecolor="transparent"),
+                   xaxis=list(range=c(-90, 90), gridcolor="transparent", fixedrange=F, showticklabels=FALSE, zerolinecolor="transparent"),
+                   shapes=list(list(type="rect",
+                                    fillcolor="white",
+                                    line=list(color=blue_experiences,width=2),
+                                    x0=-90,x1=-90 + exp$perc_no[2]*1.6,xref="x",
+                                    y0=79,y1=80,yref="y"),
+                               list(type="rect",
+                                    fillcolor=blue_experiences,
+                                    line=list(color=blue_experiences,width=2),
+                                    x0=-90 + exp$perc_no[2]*1.6,x1=70,xref="x",
+                                    y0=79,y1=80,yref="y")
+                               ),
+                   annotations=list(
+                      list(text=paste0(exp$perc_no_print[2]),
+                                         y=79.85,
+                                         x=(-90+(-90+ exp$perc_no[2]*1.6))/2,
+                                         showarrow=F, yanchor="top",font=list(size=15)),
+                      list(text=paste0(exp$perc_yes_print[2]),
+                                         y=79.85,
+                                         x=(70-(90 - exp$perc_no[2]*1.6))/2,
+                                         #col = "white",
+                                         showarrow=F, yanchor="top",font=list(size=15, color = "white"))
+                   ),
+                   margin=list(t=0,l=0,r=0,b=0)
+            ) %>% 
+              config(staticPlot=TRUE)
+```
+</div>
+</div>
+</center>
+
+<span style = "color:#bc8d45 !important; font-weight: bold; margin:5px 1px 5px 80px;">We work as a</span><span style = "color:#bc8d45 !important; font-weight: bold; font-style: italic;"> real</span><span style = "color:#bc8d45 !important; font-weight: bold;"> team.</span><br>
+<span style = "color:#bc8d45 !important; font-style: italic; margin: 5px -100px 5px 80px; display: inline-block;">(A well-defined group of individuals working interdependently towards mutual goals)</span>
+<center>
+<div style=height:100%">
+<div class="grid-item1c">
+```{r, echo=F, message=F, warning=F}
+plot_ly(type="scatter", mode="markers", width = 750, height = 100) %>%
+            layout(yaxis=list(range=c(77,80), gridcolor="transparent", fixedrange=F,showticklabels=FALSE, zerolinecolor="transparent"),
+                   xaxis=list(range=c(-90, 90), gridcolor="transparent", fixedrange=F, showticklabels=FALSE, zerolinecolor="transparent"),
+                   shapes=list(list(type="rect",
+                                    fillcolor="white",
+                                    line=list(color=blue_experiences,width=2),
+                                    x0=-90,x1=-90 + exp$perc_no[3]*1.6,xref="x",
+                                    y0=79,y1=80,yref="y"),
+                               list(type="rect",
+                                    fillcolor=blue_experiences,
+                                    line=list(color=blue_experiences,width=2),
+                                    x0=-90 + exp$perc_no[3]*1.6,x1=70,xref="x",
+                                    y0=79,y1=80,yref="y")
+                               ),
+                   annotations=list(
+                      list(text=paste0(exp$perc_no_print[3]),
+                                         y=79.85,
+                                         x=(-90+(-90+ exp$perc_no[3]*1.6))/2,
+                                         showarrow=F, yanchor="top",font=list(size=15)),
+                      list(text=paste0(exp$perc_yes_print[3]),
+                                         y=79.85,
+                                         x=(70-(90 - exp$perc_no[3]*1.6))/2,
+                                         #col = "white",
+                                         showarrow=F, yanchor="top",font=list(size=15, color = "white"))
+                   ),
+                   margin=list(t=0,l=0,r=0,b=0)
+            ) %>% 
+              config(staticPlot=TRUE)
+```
+</div>
+</div>
+</center>
+
+:::
+
+
+
+
+::: {style="page-break-after: always !important;"}
+<br>
+<br>
+<div class="basic_header">
+<h2>CONFLICTS</h2>
+<span class="header_info">A pathway to progress</span>
+<div class="line"></div>
+</div>
+
+<div class="fancy_text">
+<br>
+<p>Conflict arises naturally in teams and, to the surprise of some, it is healthy! Depending on how it is handled, conflict can actually improve team functioning. Author Patrick Lencioni describes conflict on a continuum, in which artificial harmony (where conflicts are avoided) is at one end and personal attacks against each other are at the other end.</p>
+<br>
+
+![](Conflicts.png){width=100%}
+</div>
+<br><br>
+:::
+
+::: {style="page-break-after: always !important;"}
+<br><br>
+<font size = 5><b><p style="width:800px">Frequent types of conflict for leadership teams are listed here in order of importance (as ranked by your team).</b></p>
+<br>
+
+```{r, include=F}
+
+conflict_items=filter(iteminfo, factor=="Conflict")
+#conf=dat[,iteminfo$abbr[iteminfo$factor=="Conflict"]]
+dat_conflict=dat[,conflict_items$abbr]
+colnames(dat_conflict)=conflict_items$abbr
+dat_conflict[is.na(dat_conflict)]="-"
+dat_conflict[dat_conflict=="-"]=0
+dat_conflict[dat_conflict !=0]=1
+dat_conflict=as.data.frame(lapply(dat_conflict, as.numeric))
+
+conf_data=as.data.frame(colMeans(dat_conflict))
+colnames(conf_data)="perc"
+conf_data$abbr=rownames(conf_data)
+conf_data=merge(iteminfo, conf_data, "abbr")
+
+conf_data=conf_data[order(conf_data$perc),]
+```
+
+<b>N = `r nrow(dat)`</b></font>
+<br>
+
+```{r, echo=F, fig.height=7,fig.width=11}
+
+plot_ly(conf_data, x=~perc*100, y=~wording, type="bar", marker=list(color="#435468"), width = 700, height = 600, text=paste0(round(conf_data$perc*100,0),"%"), textposition="outside") %>% 
+  layout(
+    margin = list(l=100, r = 50, b = 50, t = 25, pad = 15), # added to create separate between y axis ticks and y axis tick labels
+    title="Which of these topics would the team benefit most from focusing on? (up to 3)",
+    yaxis=list(title="", categoryorder='trace',fixedrange = TRUE, range=c(-0.5,10)),
+    xaxis=list(title="", range=c(0,115),fixedrange = TRUE,zerolinecolor="white",showgrid=FALSE,tickvals = list(0, 20, 40, 60, 80, 100),tickmode = "array")
+    ) %>% 
+  config(displayModeBar=FALSE, staticPlot=TRUE)
+```
+
+:::
+
+::: {style="page-break-after: always !important;"}
+<br>
+<br>
+<div class="basic_header">
+<h2>ACTION PLANNING</h2>
+<span class="header_info">Start generating your team goals by asking: Where are we now, and where do we go from here?</span>
+<div class="line"></div>
+</div>
+<br><br><br>
+<div class="fancy_text">
+<span style="font-size:16pt">
+<ol>
+<li><b>Begin with team reflection - what stands out as a possible priority for change?</b></li>
+<br>
+<li><b>What areas of focus would the team benefit from the most? (We recommend one to two goals, ideally no more than three.)</b></li>
+<br>
+<li><b>Define the current state.</b></li>
+<br>
+<li><b>Define the future state.</b></li>
+<br>
+<li><b>What steps will get you to the future state? How will you measure progress? What's your timeline? What are the milestones toward your goal? Who will be responsible for keeping this goal on track?</b></li>
+</span>
+</ol>
+</div>
+:::
+
+
+<br>
+<br>
+<div class="basic_header">
+<h2>SUGGESTED READINGS</h2>
+<span class="header_info">To learn more</span>
+<div class="line"></div>
+</div>
+
+<br><br>
+<div style="margin-left:80px; margin-right:-40px">
+<p>Edmonson, A.C. (2012).<span style="color:#c69e5d !important">Teaming: How organizations learn, innovate, and compete in the knowledge economy.</span> John Wiley & Sons, Inc.</p>
+<p>Edmonson introduces and illustrates the concept of “Teaming” providing a framework for understanding the active and continuous process of working together as a team, or “teamwork on the fly.”</p>
+<br>
+<div class="line1"></div>
+<br>
+<p>Lencioni, P. (2002). <span style="color:#c69e5d !important">The five dysfunctions of a team.</span> Jossey-Bass.</p>
+<br>
+<p>This easy to read “leadership fable” outlines common barriers that teams encounter as well as ways to overcome these barriers and maximize your team’s potential.</p>
+<br>
+<div class="line1"></div>
+<br>
+<p>Schein, E.H. (2009). <span style="color:#c69e5d !important">Helping: How to offer, give, and receive help – understanding effective dynamics in one-to-one, group, and organizational relationships.</span> Berrett-Koehler Publishers, Inc.</p>
+<br>
+<p>A guide to better understanding, building, and maintaining mutually supportive relationships - key components of engaged and effective leadership teams.</p>
+<br>
+<div class="line1"></div>
+<br>
+<p> Sipe, J.W. & Frick, D.M. (2015). <span style="color:#c69e5d !important">The Seven pillars of servant leadership: Practicing the wisdom of leading by serving.</span> Paulist Press.</p>
+<br>
+<p>Outlines the principles of Servant Leadership and provides guidance around applying and embodying these principles in your day to day leadership practice.</p>
+<br>
+<div class="line1"></div>
+<br>
+<p>VHA NCOD Leadership Team Assessment and Consultation</p>
+<b>Work Better. Together.</b>
+</div>
