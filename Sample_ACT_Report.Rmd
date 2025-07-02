@@ -1,0 +1,211 @@
+---
+title: "ACT Sample Report"
+output: rmdformats::material
+
+---
+
+```{r setup, include=FALSE}
+setwd("C:/Users/Aaron/Documents/NCOD/Portfolio Work/Scripts/ACT Stuff")
+
+pacman::p_load(dplyr,huxtable,plotly,htmlwidgets,reactable,DT,tidyr,qualtRics,data.table,Hmisc,downloadthis)
+options(stringsAsFactors = F)
+source("C:/Users/Aaron/Documents/NCOD/Portfolio Work/Scripts/ACT Stuff/nested_reactable_function4.R")
+
+theme <- reactableTheme(
+  headerStyle = list(
+    color = "#FFFFFF",
+    backgroundColor = "#009587"
+  )
+)
+
+dat <- read.csv("./Sample Report Fake Data - changed.csv")
+
+naniar::replace_with_na(dat, replace = list (" ","","  ",""))
+dat[dat==""]= NA
+
+agr_items = colnames(dat)[grepl("QID1_", colnames(dat)) | grepl("QID2_", colnames(dat))]
+yn_items = c("QID3","QID4")
+agr_options = c("Strongly Disagree","Disagree","Neutral","Agree","Strongly Agree")
+yn_options = c("Yes","No")
+
+names(dat)[1] = "Overall"
+
+setDT(dat)
+dat.num = dat
+dat.num[dat.num == "Strongly Disagree"] = 1
+dat.num[dat.num == "Disagree"] = 2
+dat.num[dat.num == "Neutral"] = 3
+dat.num[dat.num == "Agree"] = 4
+dat.num[dat.num == "Strongly Agree"] = 5
+dat.num[,(agr_items) := lapply(.SD, function(x) as.numeric(x)), .SDcols = agr_items]
+
+dat[, (agr_items) := lapply(.SD, function(x) factor(x, levels = agr_options)), .SDcols = agr_items]
+dat[, (yn_items) := lapply(.SD, function(x) factor(x, levels = yn_options)), .SDcols = yn_items]
+
+iteminfo = data.frame("qname" = names(dat),
+                      "sub" = c("","I am responding to this survey in my role as:","In what way/s would you prefer to receive assistance from Sample Office? Select all that apply.","The service I received from Sample Office was timely.","The Sample Office staff member who assisted me was knowledgeable.","The Sample Office staff member who assisted me was professional.","The Sample Office staff member who assisted me communicated effectively.","The Sample Office staff member who assisted me understood my needs.","The Sample Office staff member who assisted me took the time to answer my questions.","The Sample Office staff member who assisted me understood my concerns.","I would work with Sample Office again in the future.","Was the service provded by Sample Office team member helpful?","Was your issue resolved to your satisfaction by Sample Office team member?"))
+
+# datsup <- dat %>% filter(D2 == "Occupation A")
+# 
+# datnonsup <- dat %>% filter(D2 == "Occupation D")
+
+demo_list = data.frame("Demographics" = c("Occupation","Method of Assistance"))
+```
+
+# Purpose 
+<font size = 5> `r nrow(dat)` Responses</font>
+
+<br>
+
+The purpose of this survey was to assess the customer service provided by Sample Office. The results will be used to better understand the strengths as well as areas of improvement for Sample Office.
+
+Responses to this survey were voluntary and will remain confidential. To ensure confidentiality, no data are provided for any group with less than 5 responses.  The one exception to this is free text responses; they are provided verbatim.
+
+This report contains frequency counts and averages scores. Verbatim free text comments are provided in a separate report.
+
+
+# Overall 
+
+### Please keep the following in mind as you are reviewing this report:
+
+* The report is created for a variety of screen sizes. In some cases on smaller screens the tables will have a horizontal scroll bar. If you would like to remove the scroll bar, hold Ctrl and click the minus sign (-) to resize the report so it zooms out until the scroll bars disappear. Alternatively, you can hold Ctrl and click the plus sign (+) to zoom in.
+
+* Data can be sorted in ascending or descending order by clicking on the up or down arrows of each column in a table.
+
+* If there is a row of blank data, that indicates that there were less than 5 responses for that particular question.
+
+<br>
+
+### Likert scales used in this survey:
+1.  Strongly Disagree/Very Dissatisfied 
+2.  Disagree/Dissatisfied
+3.  Neutral  
+4.  Agree/Satisfied  
+5.  Strongly Agree/Very Satisfied 
+
+
+<br>
+
+### I am responding to this survey in my role as:
+
+```{r occupation, echo=F, warning=FALSE}
+dat$D2 <- factor(x = dat$D2, levels = c("Occupation A","Occupation B", "Occupation C", "Occupation D", "Occupation E"))
+  Test <- dat %>% select(D2)  %>% filter(!is.na(D2)) 
+  Test <- Test %>% group_by(D2) %>% dplyr::count(D2 , .drop = FALSE)
+  colnames(Test) <- c("Role","Count")
+
+Test$Count <- ifelse(Test$Count<5, "", Test$Count)
+
+
+reactable(Test,
+          compact = T,
+          striped = T,
+          highlight = T,
+          theme = theme,
+          width = 250,
+          columns = list(
+            Count = colDef(align = "right")
+          ))
+```
+
+<br>
+
+### In what way/s would you prefer to receive assistance from Sample Office? Select all that apply.
+
+```{r assistance, echo=F, warning=FALSE}
+dat$D3 <- factor(x = dat$D3, levels = c("Face-to-Face","Video Call", "Phone Call", "Teams Chat", "Email", "Other"))
+  Test <- dat %>% select(D3)  %>% filter(!is.na(D3)) 
+  Test <- Test %>% group_by(D3) %>% dplyr::count(D3 , .drop = FALSE)
+  colnames(Test) <- c("Method","Count")
+Test$Count <- ifelse(Test$Count<5, "", Test$Count)
+
+
+
+reactable(Test,
+          compact = T,
+          striped = T,
+          highlight = T,
+          theme = theme,
+          width = 250,
+          columns = list(
+            Count = colDef(align = "right")
+          ))
+```
+
+<br>
+
+```{r agr, echo=FALSE, warning = FALSE}
+demos = c("Overall","D2","D3")
+
+agr_list <- list()
+for(i in agr_items){
+  for(j in 1:length(demos)){
+    agr_list[[i]][[j]] <- dat[, lapply(.SD, function(x) table(x, get(demos[j]))), .SDcols = i]
+    agr_list[[i]][[j]][, `:=` (Item = i,
+                               Wording = iteminfo$sub[iteminfo$qname %in% i],
+                               Demo = demos[j])]
+  }
+  agr_list[[i]] <- rbindlist(agr_list[[i]], use.names = FALSE)
+}
+agr_list <- rbindlist(agr_list, use.names = FALSE)
+names(agr_list) <- c("Response","Group","N","Item","Question", "Demo")
+agr_list <- dcast(agr_list, Demo + Group + Item + Question ~ Response, value.var = "N")
+
+agr_list[,`:=` (N = rowSums(agr_list[,..agr_options], na.rm = T))][, (agr_options) := lapply(.SD, function(x) x/N), .SDcols = agr_options][, c(agr_options, "N") := lapply(.SD, function(x) ifelse(N < 5, NA, x)), .SDcols = c(agr_options,"N")] #[, (agr_options) := lapply(.SD, function(x) x/N), .SDcols = agr_options] ---> For rounding and pasting the % sign in
+setcolorder(agr_list, c("Demo","Group","Item","Question",agr_options,"N"))
+
+agr_means <- list()
+for(i in demos){
+  agr_means[[i]] <- dat.num[, .(Demo = i,
+                               Question = iteminfo$sub[iteminfo$qname %in% agr_items],
+                               Item = agr_items,
+                               Mean = unlist(lapply(.SD, function(x) round(mean(x, na.rm = T),2))),
+                            N = unlist(lapply(.SD, function(x) sum(!is.na(x))))), .SDcols = agr_items, by = i]
+}
+agr_means <- na.omit(rbindlist(agr_means, use.names = F))
+names(agr_means)[1] <- "Group"
+
+agr_means[, c("Mean","N") := lapply(.SD, function(x) ifelse(N < 5, NA, x)), .SDcols = c("Mean","N")]
+
+agr_ovr <- full_join(agr_list,agr_means[,1:5], by = c("Group","Demo","Question","Item"))
+setcolorder(agr_ovr, c("Demo","Group","Item","Question",agr_options,"Mean","N"))
+
+nested_reactable_ACT_reports(agr_ovr, demo_list, demos, agr_items, mean_column = T)
+
+agr_ovr %>% download_this(.,
+                          button_label = "Download Agreement Table",
+                          output_name = "Agreement Means and Frequencies",
+                          output_extension = c(".csv"))
+
+```
+<br>
+
+```{r yn_items, echo=F, warning = F}
+yn_list <- list()
+for(a in yn_items){
+  for(b in 1:length(demos)){
+    yn_list[[a]][[b]] <- dat[, lapply(.SD, function(x) table(x, get(demos[b]))), .SDcols = a]
+    yn_list[[a]][[b]][, `:=` (Item = a,
+                         Question = iteminfo$sub[iteminfo$qname %in% a],
+                         Demo = demos[b])]
+  }
+  yn_list[[a]] <- rbindlist(yn_list[[a]], use.names = FALSE)
+}
+yn_list <- rbindlist(yn_list, use.names = FALSE)
+names(yn_list) <- c("Response","Group","N","Item","Question", "Demo")
+yn_list <- dcast(yn_list, Demo + Group + factor(Item, levels = yn_items) + Question ~ Response, value.var = "N")
+
+yn_list[,`:=` (N = rowSums(yn_list[,..yn_options], na.rm = T))][, (yn_options) := lapply(.SD, function(x) x/N), .SDcols = yn_options][, c(yn_options, "N") := lapply(.SD, function(x) ifelse(N < 5, NA, x)), .SDcols = c(yn_options,"N")] #[, (agr_options) := lapply(.SD, function(x) x/N), .SDcols = agr_options] ---> For rounding and pasting the % sign in
+setcolorder(yn_list, c("Demo","Group","Item","Question",yn_options,"N"))
+
+nested_reactable_ACT_reports(yn_list, demo_list, demos, yn_items, mean_column = F)
+
+yn_list %>% download_this(.,
+                          button_label = "Download Yes/No Table",
+                          output_name = "Yes_No Frequencies",
+                          output_extension = c(".csv"))
+
+
+```
+
+
